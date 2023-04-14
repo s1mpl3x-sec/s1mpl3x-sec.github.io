@@ -20,7 +20,7 @@ title                    : "s1mpl3x's Blog"
 title_separator          : "-"
 name                     : "S1mpl3x"
 description              : "Cibersecurity Blog"
-url                      : "https://s1mpl3x.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : "https://s1mpl3x-sec.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "s1mpl3x-sec/s1mpl3x.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 logo                     : #
