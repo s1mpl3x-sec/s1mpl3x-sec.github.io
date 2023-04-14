@@ -4,7 +4,8 @@ title: SteelMountain - TryHackMe (OSCP STYLE)
 date: 2023-04-14
 classes: wide
 header:
-  teaser: assets/images/steelmountain/portada.jpeg
+  teaser: /assets/images/steelmountain/portada.jpeg
+  teaser_home_page: true
 categories:
   - TryHackMe
   - infosec
