@@ -33,3 +33,4 @@ For machine enumeration, we will scan all ports of the machine, request it to re
 ```
 sudo nmap -p- -sS --min-rate 5000 --open -T5 -vvv -n -Pn 10.10.178.153 -oG allPorts
 ```
+
