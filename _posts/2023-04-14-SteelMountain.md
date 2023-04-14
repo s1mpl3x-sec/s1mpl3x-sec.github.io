@@ -33,4 +33,4 @@ For machine enumeration, we will scan all ports of the machine, request it to re
 # Reconocimiento
 La máquina tiene un sistema operativo Windows, información que nos da TryHackMe. Por medio de un escaneo de puertos con nmap, detectamos aquellos que se encuentren activos con un estatus **open** en la máquina víctima:
 
-	nmap --min-rate 5000 -p- --open -Pn -n 10.10.54.61	-oN portScan
+``nmap --min-rate 5000 -p- --open -Pn -n 10.10.54.61	-oN portScan``
