@@ -25,7 +25,7 @@ baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "s1mpl3x-sec/s1mpl3x.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 logo                     : #
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-masthead_title           : "Cyber Blog"
+masthead_title           : "Blu3ming's Blog"
 breadcrumbs              : true # true, false (default)
 words_per_minute         : 200
 comments:
