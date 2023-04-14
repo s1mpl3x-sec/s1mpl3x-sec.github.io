@@ -14,3 +14,7 @@ tags:
   - Unquoted Service Path
   - HFS
 ---
+
+## Introduccion
+
+This is a write-up for the SteelMountain machine on the TryHackme platform. We tackled this pentesting exercise using the approach and methodology of OSCP.
