@@ -1,7 +1,8 @@
 ---
+layout: splash
 title: "About"
 permalink: /about/
-date: 2019-02-15
+date: 2023-04-14
 ---
 ## Welcome to my blog!
 
