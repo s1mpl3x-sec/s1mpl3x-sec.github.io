@@ -77,7 +77,7 @@ It is important to note that we gained access with a PowerShell session, so all 
 
 We used the PowerUp.ps1 tool to enumerate potential privilege escalation vectors within the machine. At the end of the script, we should add "Invoke-AllChecks" to perform the scan.
 
-The GitHub repository to download the tool is:[Github](https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1)
+The GitHub repository to download the tool is: [Github](https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1)
 
 We executed the script from our local machine using the Invoke-Expression tool, which means that the script was not downloaded or stored on the victim's machine.
 
