@@ -13,7 +13,7 @@ categories:
 tags:
   - TryHackMe
   - Linux
-  - Joomla
+  - Joomla 3.7.0
   - Lateral Priv Escalation
   - Yum SUDO permissions
 ---
