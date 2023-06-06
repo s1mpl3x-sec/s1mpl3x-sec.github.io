@@ -1,7 +1,7 @@
 ---
 layout: single
 title: BrainStorm - TryHackMe (OSCP STYLE)
-excerpt: "In this exciting challenge, we have to perform social engineering on a Windows executable that runs a Chat application, a very interesting machine that poses a few headaches."
+excerpt: "Reverse engineer a chat program and write a script to exploit a Windows machine, this is the introduction that TryHackme gives to Brainstorm machine, flagged as Medium  difficulty, now continuing with the OSCP methodology we'll pwn it throgh manual actions."
 date: 2023-06-06
 classes: wide
 header:
@@ -16,6 +16,7 @@ tags:
   - Reverse Engieneer
   - Windows
 ---
+
 ## Enumeration
 
 We are going to be using the Nmap tool to scan the machine for possible vulnerabilities and obtain an initial access point.
