@@ -104,7 +104,7 @@ analytics:
 author:
   name             : "s1mpl3x"
   avatar           : "/assets/images/avatar.jpeg"
-  bio              : "Pentester, CTF player<br>Cybersecurity Analyst<br>eJPTv2"
+  bio              : "eJPTv2<br>Cybersecurity Analyst"
   location         : "ESP"
   uri              :
   home             : # null (default), "absolute or relative url to link to author home"
